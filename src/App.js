@@ -1,4 +1,7 @@
-import {useState, useId} from 'react';
+import {useState} from 'react';
+import {v4 as uuidv4} from 'uuid';
+
+import Todo from './Todo';
 
 import todoLogo from './img/todoLogo.svg';
 
@@ -6,32 +9,14 @@ const App = () => {
     const [todos, setTodos] = useState([]);
     const [text, setText] = useState('');
 
-    const addTodo = (text, id) => {
-        const todo = {
-            id,
+    const addTodo = (text) => {
+        const newTodo = {
+            id: uuidv4(),
             text,
             done: false
         }
 
-        setTodos(todo);
-    }
-
-    const renderTodos = () => {
-        todos.forEach(todo => {
-            if (todo.done) {
-                return;
-            }
-    
-            return `
-                <div class="todo">
-                    <div id="check">
-                        <input type="checkbox">
-                    </div>
-                    <span id="text">${todo.text}</span>
-                    <button data-id="${todo.id}" class="delete"></button>
-                </div>
-            `;
-        });
+        setTodos([...todos, newTodo]);
     }
 
     return (
@@ -69,7 +54,11 @@ const App = () => {
                     </div>
                 </div>
                 <div className="todo__todos">
-                    {renderTodos()}
+                    {
+                        todos.map(todo => {
+                            return <Todo key={todo.id} text={todo.text} id={todo.id} />
+                        })
+                    }
                 </div>
             </div>
         </div>
