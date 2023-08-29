@@ -5,7 +5,6 @@ import todoLogo from './img/todoLogo.svg';
 const App = () => {
     const [todos, setTodos] = useState([]);
 
-
     const addTodo = (text, id) => {
         const todo = {
             id,
@@ -14,6 +13,24 @@ const App = () => {
         }
 
         setTodos(todo);
+    }
+
+    const renderTodos = () => {
+        todos.forEach(todo => {
+            if (todo.done) {
+                return;
+            }
+    
+            return `
+                <div class="todo">
+                    <div id="check">
+                        <input type="checkbox">
+                    </div>
+                    <span id="text">${todo.text}</span>
+                    <button data-id="${todo.id}" class="delete"></button>
+                </div>
+            `;
+        });
     }
 
     return (
@@ -44,7 +61,9 @@ const App = () => {
                         </div>    
                     </div>
                 </div>
-                <div className="todo__todos"></div>
+                <div className="todo__todos">
+                    {renderTodos()}
+                </div>
             </div>
         </div>
         </div>
