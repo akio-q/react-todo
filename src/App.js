@@ -4,6 +4,7 @@ import todoLogo from './img/todoLogo.svg';
 
 const App = () => {
     const [todos, setTodos] = useState([]);
+    const [text, setText] = useState('');
 
     const addTodo = (text, id) => {
         const todo = {
@@ -41,7 +42,13 @@ const App = () => {
         <div className="todo__main">
             <div className="todo__main-wrapper">
                 <div className="todo__header">
-                    <input type="text" name="todo" placeholder="Add a new Task" id="todo" className="todo__input" />
+                    <input 
+                        type="text" 
+                        name="todoText" 
+                        placeholder="Add a new Task" 
+                        className="todo__input"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)} />
                     <button className="todo__add-btn">
                         Create
                         <i className="icon-plus"></i>
