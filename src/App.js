@@ -35,7 +35,9 @@ const App = () => {
                         className="todo__input"
                         value={text}
                         onChange={(e) => setText(e.target.value)} />
-                    <button className="todo__add-btn">
+                    <button 
+                        className="todo__add-btn"
+                        onClick={() => addTodo(text)}>
                         Create
                         <i className="icon-plus"></i>
                     </button>
