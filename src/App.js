@@ -17,6 +17,7 @@ const App = () => {
         }
 
         setTodos([...todos, newTodo]);
+        setText('');
     }
 
     return (
