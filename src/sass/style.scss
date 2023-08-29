@@ -48,10 +48,6 @@ input[type="checkbox"]:checked::after {
     color: #fff 
 }
 
-#check {
-    border-radius: 100%;
-}
-
 .todo {
     &__main {
         display: flex;

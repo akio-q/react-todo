@@ -1,11 +1,9 @@
-const Todo = ({text, id}) => {
+const Todo = ({text, id, onDelete}) => {
     return (
         <div className="todo__todos-item">
-            <div id="check">
-                <input type="checkbox" />
-            </div>
-            <span id="text">{text}</span>
-            <button data-id={id} className="todo__todos-item-delete"></button>
+            <input type="checkbox" />
+            <span>{text}</span>
+            <button onClick={() => onDelete(id)} className="todo__todos-item-delete"></button>
         </div>
     )
 }

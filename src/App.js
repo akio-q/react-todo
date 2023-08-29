@@ -13,11 +13,17 @@ const App = () => {
         const newTodo = {
             id: uuidv4(),
             text,
-            done: false
+            done: false,
         }
 
         setTodos([...todos, newTodo]);
         setText('');
+    }
+
+
+    const deleteTodo = (id) => {
+        const filteredTodos = todos.filter(todo => todo.id !== id);
+        setTodos(filteredTodos);
     }
 
     return (
@@ -59,7 +65,11 @@ const App = () => {
                 <div className="todo__todos">
                     {
                         todos.map(todo => {
-                            return <Todo key={todo.id} text={todo.text} id={todo.id} />
+                            return <Todo 
+                                        key={todo.id} 
+                                        text={todo.text} 
+                                        id={todo.id}
+                                        onDelete={deleteTodo} />
                         })
                     }
                 </div>
