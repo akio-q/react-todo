@@ -8,6 +8,7 @@ import todoLogo from './img/todoLogo.svg';
 const App = () => {
     const [todos, setTodos] = useState([]);
     const [text, setText] = useState('');
+    const doneTasksCounter = todos.filter(todo => todo.done).length;
 
     const addTodo = (text) => {
         if (text.trim() === '') {
@@ -39,7 +40,11 @@ const App = () => {
         setTodos(updatedTodos);
     } 
 
-    const doneTasksCounter = todos.filter(todo => todo.done).length;
+    const handleAddTodoOnKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            addTodo(text);
+        }
+    }
 
     return (
         <div className="todo">
@@ -55,7 +60,8 @@ const App = () => {
                         placeholder="Add a new task" 
                         className="todo__input"
                         value={text}
-                        onChange={(e) => setText(e.target.value)} />
+                        onChange={(e) => setText(e.target.value)}
+                        onKeyDown={handleAddTodoOnKeyPress} />
                     <button 
                         className="todo__add-btn"
                         onClick={() => addTodo(text)}>
