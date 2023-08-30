@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 
 import Todo from './Todo';
@@ -31,9 +31,12 @@ const App = () => {
         setTodos(filteredTodos);
     }
     
-    const spanRef = useRef(null);
-    const completeTodo = () => {
-        spanRef.current.classList.toggle('completed');
+    const completeTodo = (id, isDone) => {
+        const updatedTodos = todos.map(todo => 
+            todo.id === id ? {...todo, done: isDone} : todo
+        )
+
+        setTodos(updatedTodos);
     } 
 
     return (
@@ -80,7 +83,6 @@ const App = () => {
                                         text={todo.text} 
                                         id={todo.id}
                                         onDelete={deleteTodo}
-                                        spanRef={spanRef}
                                         onComplete={completeTodo} />
                         })
                     }
