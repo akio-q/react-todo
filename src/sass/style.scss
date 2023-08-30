@@ -122,7 +122,10 @@ input[type="checkbox"]:checked::after {
                 background-color: inherit;
                 font-size: 24px;
                 color: #808080;
-                transition: .3s all;
+                transition: .2s all;
+                &:hover {
+                    color: #bd4040
+                }
             }
         }
     }
@@ -176,9 +179,6 @@ input[type="checkbox"]:checked::after {
 .completed {
     text-decoration: line-through;
     color: #808080;
-}
-.trashBtnHover {
-    color: #874444
 }
 
 @media(max-width: 768px) {
