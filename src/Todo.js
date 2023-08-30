@@ -15,8 +15,12 @@ const Todo = ({text, id, onDelete, onComplete}) => {
 
     return (
         <div className="todo__todos-item">
-            <input type="checkbox" onChange={handleComplete} />
-            <span ref={spanRef}>{text}</span>
+            <div className="todo__todos-item_main">
+                <div>
+                    <input type="checkbox" onChange={handleComplete} />
+                </div>
+                <span ref={spanRef}>{text}</span>
+            </div>
             <button onClick={() => onDelete(id)} className="todo__todos-item-delete"></button>
         </div>
     )

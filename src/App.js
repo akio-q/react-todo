@@ -59,7 +59,7 @@ const App = () => {
                     <button 
                         className="todo__add-btn"
                         onClick={() => addTodo(text)}>
-                        Create
+                        <div className='todo__add-btn_inner'>Create</div>
                         <i className="icon-plus"></i>
                     </button>
                 </div>
