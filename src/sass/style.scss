@@ -86,12 +86,12 @@ input[type="checkbox"]:checked::after {
         font-weight: 600;
         font-size: 14px;
         border-radius: 5px;
+        transition: .5s all;
         i {
             margin-left: 5px;
         }
         &:hover {
             background-color: #2c90cb;
-            transition: .3s;
         }
     }
     &__todos {
@@ -107,8 +107,10 @@ input[type="checkbox"]:checked::after {
             background-color: #333333;
             border-radius: 8px;
             color: #fff;
+            transition: 5s all;
             span {
                 margin-left: 10px;
+                transition: .3s all;
             }
             &_main {
                 display: flex;
@@ -118,12 +120,9 @@ input[type="checkbox"]:checked::after {
             &-delete {
                 height: 23px;
                 background-color: inherit;
-                &::after {
-                    content: "\e900";
-                    font-family: 'icomoon';
-                    font-size: 23px;
-                    color: #808080;
-                }
+                font-size: 24px;
+                color: #808080;
+                transition: .3s all;
             }
         }
     }
@@ -177,6 +176,9 @@ input[type="checkbox"]:checked::after {
 .completed {
     text-decoration: line-through;
     color: #808080;
+}
+.trashBtnHover {
+    color: #874444
 }
 
 @media(max-width: 768px) {
