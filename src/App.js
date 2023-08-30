@@ -39,6 +39,8 @@ const App = () => {
         setTodos(updatedTodos);
     } 
 
+    const doneTasksCounter = todos.filter(todo => todo.done).length;
+
     return (
         <div className="todo">
         <header>
@@ -69,9 +71,9 @@ const App = () => {
                     <div className="todo__counters-item todo__counters-item_done">
                         Done Tasks:
                         <div className="todo__counters-item_done_wrapper">
-                            <span>0</span> 
+                            <span>{doneTasksCounter}</span> 
                             <div className="of">of</div> 
-                            <span>0</span>
+                            <span>{todos.length}</span>
                         </div>    
                     </div>
                 </div>
