@@ -69,9 +69,13 @@ input[type="checkbox"]:checked::after {
         background-color: #262626;
         border-radius: 5px;
         border: none;
+        outline: 2px solid transparent;
         font-size: 17px;
         color: #fff;
         transition: .3s;
+        &:focus {
+            outline: 2px solid #1e6f9f;
+        }
     }
     &__add-btn {
         padding: 16px;
