@@ -56,7 +56,7 @@ const App = () => {
                 <div className="todo__counters">
                     <div className="todo__counters-item todo__counters-item_created">
                         Created Tasks:
-                        <span>0</span>
+                        <span>{todos.length}</span>
                     </div>
                     <div className="todo__counters-item todo__counters-item_done">
                         Done Tasks:
