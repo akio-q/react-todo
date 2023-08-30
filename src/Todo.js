@@ -1,12 +1,4 @@
-import { useRef } from "react";
-
-const Todo = ({text, id, onDelete}) => {
-    const spanRef = useRef(null);
-
-    const onComplete = () => {
-        spanRef.current.classList.toggle('completed');
-    } 
-
+const Todo = ({text, id, onDelete, spanRef, onComplete}) => {
     return (
         <div className="todo__todos-item">
             <input type="checkbox" onChange={onComplete} />

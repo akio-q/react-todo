@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import {v4 as uuidv4} from 'uuid';
 
 import Todo from './Todo';
@@ -30,6 +30,11 @@ const App = () => {
         const filteredTodos = todos.filter(todo => todo.id !== id);
         setTodos(filteredTodos);
     }
+    
+    const spanRef = useRef(null);
+    const completeTodo = () => {
+        spanRef.current.classList.toggle('completed');
+    } 
 
     return (
         <div className="todo">
@@ -74,7 +79,9 @@ const App = () => {
                                         key={todo.id} 
                                         text={todo.text} 
                                         id={todo.id}
-                                        onDelete={deleteTodo} />
+                                        onDelete={deleteTodo}
+                                        spanRef={spanRef}
+                                        onComplete={completeTodo} />
                         })
                     }
                 </div>
