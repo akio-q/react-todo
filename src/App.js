@@ -10,10 +10,15 @@ const App = () => {
     const [text, setText] = useState('');
 
     const addTodo = (text) => {
+        if (text.trim() === '') {
+            alert('Please, enter a task');
+            return;
+        }
+
         const newTodo = {
             id: uuidv4(),
             text,
-            done: false,
+            done: false
         }
 
         setTodos([...todos, newTodo]);
@@ -37,7 +42,7 @@ const App = () => {
                     <input 
                         type="text" 
                         name="todoText" 
-                        placeholder="Add a new Task" 
+                        placeholder="Add a new task" 
                         className="todo__input"
                         value={text}
                         onChange={(e) => setText(e.target.value)} />
