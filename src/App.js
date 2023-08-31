@@ -4,6 +4,7 @@ import {v4 as uuidv4} from 'uuid';
 import Todo from './Todo';
 
 import todoLogo from './img/todoLogo.svg';
+import clipboardText from './img/clipboardText.png';
 
 const App = () => {
     const [todos, setTodos] = useState([]);
@@ -83,6 +84,15 @@ const App = () => {
                         </div>    
                     </div>
                 </div>
+                {
+                    todos.length === 0 ? (
+                        <div className='empty-page'>
+                            <img src={clipboardText} className='empty-page__img' alt="Blank" />
+                            <strong>You don't have any tasks yet.</strong>
+                            <p className='empty-page__text'>Create tasks and organize your todo items</p>
+                        </div>
+                    ) : null
+                }
                 <div className="todo__todos">
                     {
                         todos.map(todo => {

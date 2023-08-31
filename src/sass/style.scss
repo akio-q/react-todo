@@ -176,6 +176,26 @@ input[type="checkbox"]:checked::after {
     }
 }
 
+.empty-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 13px;
+    color: #808080;
+    &__img {
+        width: 80px;
+        height: 80px;
+    }
+    strong {
+        margin-top: 15px;
+        font-size: 19px;
+    }
+    &__text {
+        font-weight: 500;
+        line-height: 22px;
+    }
+}
+
 .completed {
     text-decoration: line-through;
     color: #808080;
@@ -207,6 +227,18 @@ input[type="checkbox"]:checked::after {
             &-item {
                 font-size: 15px;
             }
+        }
+    }
+    .empty-page {
+        &__img {
+            width: 60px;
+            height: 60px;
+        }
+        strong {
+            font-size: 16px;
+        }
+        &__text {
+            font-size: 15px;
         }
     }
 }
@@ -252,6 +284,18 @@ input[type="checkbox"]:checked::after {
                     }
                 }
             }
+        }
+    }
+    .empty-page {
+        &__img {
+            width: 50px;
+            height: 50px;
+        }
+        strong {
+            font-size: 15px;
+        }
+        &__text {
+            font-size: 13px;
         }
     }
 }
