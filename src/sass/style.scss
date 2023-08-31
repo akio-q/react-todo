@@ -78,9 +78,11 @@ input[type="checkbox"]:checked::after {
         }
     }
     &__add-btn {
-        padding: 16px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 53px;
         background-color: #1e6f9f;
         color: #fff;
         font-weight: 600;
@@ -209,7 +211,7 @@ input[type="checkbox"]:checked::after {
             }
         }
         &__input {
-            width: 435px;
+            width: 430px;
         }
     }
 }
@@ -221,7 +223,10 @@ input[type="checkbox"]:checked::after {
             }
         }
         &__input {
-            width: 315px;
+            width: 320px;
+        }
+        &__add-btn {
+            width: 90px;
         }
         &__counters {
             &-item {
@@ -246,43 +251,23 @@ input[type="checkbox"]:checked::after {
     .todo {
         &__main {
             &-wrapper {
-                width: 310px;
+                width: 100%;
             }
+        }
+        &__header {
+            flex-direction: column;
         }
         &__input {
-            width: 230px;
-            height: 40px;
-            font-size: 15px;
+            width: 100%;
         }
         &__add-btn {
-            padding: 0;
-            width: 40px;
-            height: 40px;
-            font-size: 14px;
-            justify-content: center;
-            i {
-                margin-left: 0;
-            }
-            &_inner {
-                display: none;
-            }
+            width: 100%;
+            margin-top: 5px;
         }
         &__counters {
             margin-top: 40px;
             &-item {
                 font-size: 14px;
-                &_created {
-                    span {
-                        background-color: unset;
-                        margin-left: 0;
-                    }
-                }
-                &_done {
-                    &_wrapper {
-                        background-color: unset;
-                        margin-left: 0;
-                    }
-                }
             }
         }
     }
