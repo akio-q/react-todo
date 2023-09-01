@@ -19,12 +19,11 @@ const Todo = ({text, id, onDelete, onComplete}) => {
 
     const handleEdit = () => {
         setIsEditing(true);
-        textRef.current.readOnly = false;
+        textRef.current.focus();
     }
     
     const handleSave = () => {
         setIsEditing(false);
-        textRef.current.readOnly = true;
     }
 
     const handleInputChange = (e) => {
