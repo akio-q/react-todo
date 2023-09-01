@@ -108,13 +108,13 @@ input[type="checkbox"]:checked::after {
             margin-top: 13px;
             background-color: #333333;
             border-radius: 8px;
-            transition: 5s all;
             &-text {
-                margin-left: 10px;
+                margin: 2px 0 0 10px;
                 font-size: 16px;
                 background-color: transparent;
                 color: #fff;
                 border: none;
+                transition: .3s all;
                 &:focus {
                     outline: none;
                 }
@@ -143,10 +143,16 @@ input[type="checkbox"]:checked::after {
                 height: 23px;
                 background-color: inherit;
                 font-size: 24px;
+            
+            }
+            &-save {
+                height: 23px;
+                background-color: inherit;
+                font-size: 24px;
                 color: #808080;
                 transition: .2s all;
                 &:hover {
-                    color: #3a73dd
+                    color: #24d43b
                 }
             }
         }

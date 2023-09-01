@@ -47,7 +47,7 @@ const Todo = ({text, id, onDelete, onComplete}) => {
             <div className="todo__todos-item_tools">
                 {isEditing ? (
                     <button className="todo__todos-item-save" onClick={handleSave}>
-                        Save
+                        <i className="icon-check-solid"></i>
                     </button>
                 ) : (
                     <button className="todo__todos-item-edit" onClick={handleEdit}>
