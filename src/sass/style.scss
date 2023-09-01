@@ -119,6 +119,11 @@ input[type="checkbox"]:checked::after {
                 align-items: center;
                 width: 90%;
             }
+            &_tools {
+                display: flex;
+                justify-content: space-between;
+                width: 8%;
+            }
             &-delete {
                 height: 23px;
                 background-color: inherit;
@@ -127,6 +132,16 @@ input[type="checkbox"]:checked::after {
                 transition: .2s all;
                 &:hover {
                     color: #bd4040
+                }
+            }
+            &-edit {
+                height: 23px;
+                background-color: inherit;
+                font-size: 24px;
+                color: #808080;
+                transition: .2s all;
+                &:hover {
+                    color: #3a73dd
                 }
             }
         }

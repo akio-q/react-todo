@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import edit from './img/edit.svg';
+
 const Todo = ({text, id, onDelete, onComplete}) => {
     const spanRef = useRef(null);
 
@@ -21,9 +23,15 @@ const Todo = ({text, id, onDelete, onComplete}) => {
                 </div>
                 <span ref={spanRef}>{text}</span>
             </div>
-            <button onClick={() => onDelete(id)} className="todo__todos-item-delete">
+            <div className="todo__todos-item_tools">
+                <button className="todo__todos-item-edit">
+                    <img src={edit} alt="Edit todo" />
+                </button>
+                <button onClick={() => onDelete(id)} className="todo__todos-item-delete">
                     <i className="icon-trash"></i>
-            </button>
+                </button>
+            </div>
+            
         </div>
     )
 }
