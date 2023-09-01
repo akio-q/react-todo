@@ -38,6 +38,8 @@ const App = () => {
             todo.id === id ? {...todo, done: isDone} : todo
         )
 
+        updatedTodos.sort((a, b) => (a.done === b.done ? 0 : a.done ? 1 : -1));
+
         setTodos(updatedTodos);
     } 
 
