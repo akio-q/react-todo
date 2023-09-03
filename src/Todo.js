@@ -32,6 +32,12 @@ const Todo = ({text, id, onDelete, onComplete, onEdit}) => {
     const handleInputChange = (e) => {
         setEditedText(e.target.value);
     }
+
+    const handleEditTodoOnKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSave();
+        } 
+    }
     
     return (
         <div className="todo__todos-item">
@@ -45,6 +51,7 @@ const Todo = ({text, id, onDelete, onComplete, onEdit}) => {
                         readOnly={!isEditing}
                         value={editedText}
                         onChange={handleInputChange}
+                        onKeyDown={handleEditTodoOnKeyPress}
                         className="todo__todos-item-text" />
                 ) : 
                 <span ref={textRef} className="todo__todos-item-text">{editedText}</span>}
