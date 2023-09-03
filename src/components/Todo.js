@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-import edit from './img/edit.svg';
+import edit from '../img/edit.svg';
 
 const Todo = ({text, id, onDelete, onComplete, onEdit}) => {
     const [isEditing, setIsEditing] = useState(false);

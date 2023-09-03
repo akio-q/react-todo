@@ -1,15 +1,16 @@
 import {useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 
-import Todo from './Todo';
+import TodoList from './components/TodoList';
+import TodoAddInput from './components/TodoAddInput';
+import Counters from './components/Counters';
+import NoTasks from './components/NoTasks';
 
 import todoLogo from './img/todoLogo.svg';
-import clipboardText from './img/clipboardText.png';
 
 const App = () => {
     const [todos, setTodos] = useState([]);
     const [text, setText] = useState('');
-    const doneTasksCounter = todos.filter(todo => todo.done).length;
 
     const addTodo = (text) => {
         if (text.trim() === '') {
@@ -51,12 +52,16 @@ const App = () => {
         );
     }
 
+    const handleAddInputChange = (e) => {
+        setText(e.target.value)
+    }
+
     const handleAddTodoOnKeyPress = (e) => {
         if (e.key === 'Enter') {
             addTodo(text);
         }
     }
-    
+
     return (
         <div className="todo">
         <header>
@@ -64,58 +69,22 @@ const App = () => {
         </header>
         <div className="todo__main">
             <div className="todo__main-wrapper">
-                <div className="todo__header">
-                    <input 
-                        type="text" 
-                        name="todoText" 
-                        placeholder="Add a new task" 
-                        className="todo__input"
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
-                        onKeyDown={handleAddTodoOnKeyPress} />
-                    <button 
-                        className="todo__add-btn"
-                        onClick={() => addTodo(text)}>
-                        <div className='todo__add-btn_inner'>Create</div>
-                        <i className="icon-plus"></i>
-                    </button>
-                </div>
-                <div className="todo__counters">
-                    <div className="todo__counters-item todo__counters-item_created">
-                        Created Tasks:
-                        <span>{todos.length}</span>
-                    </div>
-                    <div className="todo__counters-item todo__counters-item_done">
-                        Done Tasks:
-                        <div className="todo__counters-item_done_wrapper">
-                            <span>{doneTasksCounter}</span> 
-                            <div className="of">of</div> 
-                            <span>{todos.length}</span>
-                        </div>    
-                    </div>
-                </div>
+                <TodoAddInput 
+                    text={text}
+                    addTodo={addTodo}
+                    handleAddInputChange={handleAddInputChange}
+                    handleAddTodoOnKeyPress={handleAddTodoOnKeyPress} />
+                <Counters todos={todos} />
                 {
                     todos.length === 0 ? (
-                        <div className='empty-page'>
-                            <img src={clipboardText} className='empty-page__img' alt="Blank" />
-                            <strong>You don't have any tasks yet.</strong>
-                            <p className='empty-page__text'>Create tasks and organize your todo items</p>
-                        </div>
+                        <NoTasks />
                     ) : null
                 }
-                <div className="todo__todos">
-                    {
-                        todos.map(todo => {
-                            return <Todo 
-                                        key={todo.id} 
-                                        text={todo.text} 
-                                        id={todo.id}
-                                        onDelete={deleteTodo}
-                                        onComplete={completeTodo}
-                                        onEdit={editTodo} />
-                        })
-                    }
-                </div>
+                <TodoList 
+                    todos={todos} 
+                    deleteTodo={deleteTodo}
+                    completeTodo={completeTodo}
+                    editTodo={editTodo} />
             </div>
         </div>
         </div>
