@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 
 import edit from './img/edit.svg';
 
-const Todo = ({text, id, onDelete, onComplete}) => {
+const Todo = ({text, id, onDelete, onComplete, onEdit}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedText, setEditedText] = useState(text);
     const textRef = useRef(null);
@@ -19,10 +19,13 @@ const Todo = ({text, id, onDelete, onComplete}) => {
 
     const handleEdit = () => {
         setIsEditing(true);
-        textRef.current.focus();
+        setTimeout(() => {
+            textRef.current.focus();
+          }, 0);
     }
     
     const handleSave = () => {
+        onEdit(id, editedText);
         setIsEditing(false);
     }
 
@@ -36,13 +39,15 @@ const Todo = ({text, id, onDelete, onComplete}) => {
                 <div>
                     <input type="checkbox" onChange={handleComplete} />
                 </div>
-                <input 
-                    ref={textRef} 
-                    type="text" 
-                    readOnly={!isEditing}
-                    value={editedText}
-                    onChange={handleInputChange}
-                    className="todo__todos-item-text" />
+                {isEditing ? (
+                    <input 
+                        ref={textRef} 
+                        readOnly={!isEditing}
+                        value={editedText}
+                        onChange={handleInputChange}
+                        className="todo__todos-item-text" />
+                ) : 
+                <span ref={textRef} className="todo__todos-item-text">{editedText}</span>}
             </div>
             <div className="todo__todos-item_tools">
                 {isEditing ? (

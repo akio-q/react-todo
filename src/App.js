@@ -43,12 +43,20 @@ const App = () => {
         setTodos(updatedTodos);
     } 
 
+    const editTodo = (id, newText) => {
+        setTodos(
+            todos.map((todo) =>
+              todo.id === id ? { ...todo, text: newText } : todo
+            )
+        );
+    }
+
     const handleAddTodoOnKeyPress = (e) => {
         if (e.key === 'Enter') {
             addTodo(text);
         }
     }
-
+    
     return (
         <div className="todo">
         <header>
@@ -103,7 +111,8 @@ const App = () => {
                                         text={todo.text} 
                                         id={todo.id}
                                         onDelete={deleteTodo}
-                                        onComplete={completeTodo} />
+                                        onComplete={completeTodo}
+                                        onEdit={editTodo} />
                         })
                     }
                 </div>
