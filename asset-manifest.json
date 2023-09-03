@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-todo/static/css/main.79abbb1e.css",
-    "main.js": "/react-todo/static/js/main.ab99507d.js",
+    "main.css": "/react-todo/static/css/main.e40d1f45.css",
+    "main.js": "/react-todo/static/js/main.375c973d.js",
     "static/media/clipboardText.png": "/react-todo/static/media/clipboardText.2118e83a66659f0a349a.png",
     "static/media/todoLogo.svg": "/react-todo/static/media/todoLogo.86adebe9490574b965f79d19843be56f.svg",
     "static/media/icomoon.svg?l0rwgz": "/react-todo/static/media/icomoon.898a238592ad9f2a1889.svg",
@@ -9,11 +9,12 @@
     "static/media/icomoon.woff?l0rwgz": "/react-todo/static/media/icomoon.91db2966f893e1b6c4aa.woff",
     "static/media/icomoon.ttf?l0rwgz": "/react-todo/static/media/icomoon.af9a869ee248a92a0562.ttf",
     "index.html": "/react-todo/index.html",
-    "main.79abbb1e.css.map": "/react-todo/static/css/main.79abbb1e.css.map",
-    "main.ab99507d.js.map": "/react-todo/static/js/main.ab99507d.js.map"
+    "static/media/edit.svg": "/react-todo/static/media/edit.9d5f5feb5e4e2765f959608dbefc6d22.svg",
+    "main.e40d1f45.css.map": "/react-todo/static/css/main.e40d1f45.css.map",
+    "main.375c973d.js.map": "/react-todo/static/js/main.375c973d.js.map"
   },
   "entrypoints": [
-    "static/css/main.79abbb1e.css",
-    "static/js/main.ab99507d.js"
+    "static/css/main.e40d1f45.css",
+    "static/js/main.375c973d.js"
   ]
 }
